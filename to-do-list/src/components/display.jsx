@@ -24,16 +24,20 @@ function DisplayTask(){
         const updateTaskArr = [...taskArr]
         console.log(updateTaskArr, 'coppy')
 
-        if(index !== 0){
-            setTaskArr(t => [updateTaskArr[index], updateTaskArr[index - 1]] = [updateTaskArr[index - 1], updateTaskArr[index]])
+        if(index > 0){
+            [updateTaskArr[index], updateTaskArr[index - 1]] = [updateTaskArr[index - 1], updateTaskArr[index]]
+
+            setTaskArr(updateTaskArr)
         }
     }
 
     function moveDown(index){
         const updateTaskArr = [...taskArr]
         
-        if(index !== updateTaskArr.length - 1){
-            setTaskArr(t => [updateTaskArr[index], updateTaskArr[index + 1]] = [updateTaskArr[index + 1], updateTaskArr[index]]) 
+        if(index < updateTaskArr.length - 1){
+            [updateTaskArr[index], updateTaskArr[index + 1]] = [updateTaskArr[index + 1], updateTaskArr[index]]
+             
+            setTaskArr(updateTaskArr)
         }
 
         
